@@ -1,0 +1,1 @@
+<?php // File upload işlemi yapılacak ?>

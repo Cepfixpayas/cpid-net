@@ -1,0 +1,1 @@
+<?php // Manuel giriş işlemi yapılacak ?>
