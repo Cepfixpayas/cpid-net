@@ -1,6 +1,717 @@
+/* Genel Stiller */
+:root {
+    --dark-bg: #1e1e1e;
+    --darker-bg: #121212;
+    --light-bg: #252526;
+    --text-color: #d4d4d4;
+    --highlight: #3a3a3a;
+    --accent: #007acc;
+    --button: #0e639c;
+    --button-hover: #1177bb;
+    --log-bg: #000000;
+    --log-text: #00ff00;
+    --error: #f14c4c;
+    --success: #6bbf59;
+    --warning: #f0a30a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
-  margin: 0;
-  padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--darker-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Konteyner */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* UyarÄ± mesajÄ± */
+.warning-message {
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: rgba(240, 163, 10, 0.2);
+    border-left: 4px solid var(--warning);
+    color: var(--warning);
+}
+
+
+/* BaÅŸlÄ±k ve MenÃ¼ */
+header {
+    background-color: var(--dark-bg);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section h1 {
+    font-size: 24px;
+    color: var(--accent);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span {
+    margin-right: 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Butonlar */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--button);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--button-hover);
+}
+
+.btn-secondary {
+    background-color: var(--highlight);
+}
+
+.btn-secondary:hover {
+    background-color: #4a4a4a;
+}
+
+.btn-danger {
+    background-color: var(--error);
+}
+
+.btn-danger:hover {
+    background-color: #e04141;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+/* Form Elementleri */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--highlight);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* GiriÅŸ/KayÄ±t SayfasÄ± */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--darker-bg);
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: var(--dark-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-box h1 {
+    color: var(--accent);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.register-link,
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-link a,
+.login-link a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.register-link a:hover,
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Panel */
+.panel {
+    background-color: var(--dark-bg);
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.panel-header {
+    background-color: var(--light-bg);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+/* Tablo */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--highlight);
+}
+
+.table th {
+    background-color: var(--light-bg);
+}
+
+.table th a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.table th a:hover {
+    color: var(--accent);
+}
+
+.table tr:hover {
+    background-color: var(--highlight);
+}
+
+.table .text-center {
+    text-align: center;
+}
+
+/* Rozet ve Durum */
+.badge, .status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge.admin {
+    background-color: var(--accent);
+    color: white;
+}
+
+.badge.reseller {
+    background-color: var(--warning);
+    color: black;
+}
+
+.badge.user {
+    background-color: var(--highlight);
+    color: var(--text-color);
+}
+
+.status.success {
+    background-color: var(--success);
+    color: white;
+}
+
+.status.fail {
+    background-color: var(--error);
+    color: white;
+}
+
+/* Aksiyon ButonlarÄ± */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-edit {
+    background-color: var(--accent);
+}
+
+.btn-delete {
+    background-color: var(--error);
+}
+
+.btn-credit {
+    background-color: var(--warning);
+    color: black;
+}
+
+.btn-view {
+    background-color: var(--dark-bg);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--dark-bg);
+    margin: 10% auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.modal-header {
+    padding: 15px;
+    background-color: var(--light-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.modal-close {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 15px;
+}
+
+/* Dashboard */
+.dashboard-header {
+    margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+    font-size: 24px;
+    color: var(--accent);
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+}
+
+.col {
+    flex: 1;
+    padding: 10px;
+    min-width: 300px;
+}
+
+/* Admin Navbar */
+.admin-nav {
+    background-color: var(--dark-bg);
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.admin-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.admin-nav ul li {
+    flex: 1;
+}
+
+.admin-nav ul li a {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.admin-nav ul li a:hover {
+    background-color: var(--highlight);
+}
+
+.admin-nav ul li.active a {
+    border-bottom-color: var(--accent);
+    font-weight: 500;
+}
+
+/* Ä°statistik KartlarÄ± */
+.stats-card {
+    background-color: var(--dark-bg);
+    border-radius: 6px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.stats-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.stats-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.stats-info p {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--accent);
+}
+
+.users-icon {
+    background-color: rgba(0, 122, 204, 0.2);
+    color: var(--accent);
+}
+
+.transactions-icon {
+    background-color: rgba(240, 163, 10, 0.2);
+    color: var(--warning);
+}
+
+.downloads-icon {
+    background-color: rgba(107, 191, 89, 0.2);
+    color: var(--success);
+}
+
+/* Tab Sistemi */
+.tab-section {
+    background-color: var(--light-bg);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.tab-header {
+    background-color: var(--dark-bg);
+}
+
+.tabs {
+    display: flex;
+    list-style: none;
+}
+
+.tabs li {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.tabs li:hover {
+    background-color: var(--highlight);
+}
+
+.tabs li.active {
+    border-bottom-color: var(--accent);
+    font-weight: 500;
+}
+
+.tab-content {
+    padding: 15px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Ä°ÅŸlem GÃ¼nlÃ¼ÄŸÃ¼ */
+.log-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    background-color: var(--log-bg);
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 900;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.log-header {
+    background-color: var(--dark-bg);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.log-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.log-content {
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+    font-family: 'Consolas', monospace;
+    font-size: 12px;
+    color: var(--log-text);
+}
+
+/* Hata ve BaÅŸarÄ± MesajlarÄ± */
+.error-message,
+.success-message {
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    background-color: rgba(241, 76, 76, 0.2);
+    border-left: 4px solid var(--error);
+    color: var(--error);
+}
+
+.success-message {
+    background-color: rgba(107, 191, 89, 0.2);
+    border-left: 4px solid var(--success);
+    color: var(--success);
+}
+
+/* Sayfalama */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.pagination .btn.active {
+    background-color: var(--accent);
+}
+
+/* Arama Kutusu */
+.search-box {
+    display: flex;
+}
+
+.search-box input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--highlight);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    border-radius: 4px 0 0 4px;
+}
+
+.search-box button {
+    border-radius: 0 4px 4px 0;
+}
+
+/* Ä°ÅŸlem DetayÄ± */
+.transaction-detail {
+    padding: 10px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--highlight);
+    padding-bottom: 8px;
+}
+
+.detail-label {
+    width: 150px;
+    font-weight: 500;
+}
+
+.detail-value {
+    flex-grow: 1;
+}
+
+.detail-value pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: var(--darker-bg);
+    padding: 10px;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .user-info {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .buttons {
+        margin-top: 10px;
+    }
+    
+    .admin-nav ul {
+        flex-direction: column;
+    }
+    
+    .admin-nav ul li.active a {
+        border-left: 3px solid var(--accent);
+        border-bottom-color: transparent;
+    }
+    
+    .log-container {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    padding: 15px 0;
+    text-align: center;
+    margin-top: 40px;
 }
